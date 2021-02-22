@@ -12,11 +12,9 @@
 
 :small_orange_diamond: [Funcionalidades](#funcionalidades)
 
-:small_orange_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
+:small_orange_diamond: [Casos de Uso](#casos-de-uso)
 
-:small_orange_diamond: [Pré-requisitos](#pré-requisitos)
-
-:small_orange_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
+:small_orange_diamond: [Linguagens, dependencias e libs utilizadas](#linguagens-dependencias-e-libs-utilizadas)
 
 
 ## Descrição do desafio 
