@@ -14,7 +14,7 @@
 
 :small_orange_diamond: [Casos de Uso](#casos-de-uso)
 
-:small_orange_diamond: [Linguagens, dependencias e libs utilizadas](#linguagens-dependencias-e-libs-utilizadas)
+:small_orange_diamond: [Linguagens, dependencias e libs utilizadas](#linguagens-dependencias-e-libs-utilizadas-books)
 
 
 ## Descrição do desafio 
