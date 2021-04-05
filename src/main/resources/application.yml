@@ -1,0 +1,16 @@
+micronaut:
+  application:
+    name: casaDoCodigoKotlin
+datasources:
+  default:
+    url: jdbc:mariadb://localhost:3307/micronaut
+    driverClassName: org.mariadb.jdbc.Driver
+    username: root
+    password: 'ajudazupper2021'
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
