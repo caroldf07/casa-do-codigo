@@ -1,10 +1,9 @@
 package br.com.zup.crianovoautor.controller
 
 import br.com.zup.crianovoautor.NovoAutorRequest
+import br.com.zup.crianovoautor.repository.AutorRepository
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
-import io.micronaut.http.client.HttpClient
-import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
@@ -13,6 +12,7 @@ import org.junit.jupiter.api.assertThrows
 import javax.inject.Inject
 import javax.validation.ConstraintViolationException
 
+
 @MicronautTest
 class AutorControllerTest {
 
@@ -20,8 +20,7 @@ class AutorControllerTest {
     lateinit var autorController: AutorController
 
     @Inject
-    @field:Client("/")
-    lateinit var client: HttpClient
+    lateinit var autorRepository: AutorRepository
 
     @Test
     @DisplayName("Deve retornar erro de e-mail")
@@ -86,5 +85,27 @@ class AutorControllerTest {
         var response: HttpResponse<Any> = autorController.cria(request)
 
         assertEquals(HttpStatus.OK, response.status())
+    }
+
+    @Test
+    @DisplayName("Deve retornar notFound")
+    fun testaBuscaAutor1() {
+        var emailNaoExiste: HttpResponse<Any> = autorController.busca("carol@email.com")
+        assertEquals(HttpStatus.NOT_FOUND, emailNaoExiste.status)
+
+    }
+
+    @Test
+    @DisplayName("Deve retornar ok")
+    fun testaBuscaAutor2() {
+        var emailExiste: HttpResponse<Any> = autorController.busca("email@email.com")
+        assertEquals(HttpStatus.OK, emailExiste.status)
+    }
+
+    @Test
+    @DisplayName("Deve retornar ok quando vazio")
+    fun testaBuscaAutor3() {
+        var emailExiste: HttpResponse<Any> = autorController.busca("")
+        assertEquals(HttpStatus.OK, emailExiste.status)
     }
 }

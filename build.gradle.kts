@@ -35,6 +35,7 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation ("com.natpryce:hamkrest:1.8.0.1")
 
     //JPA
     runtime("io.micronaut.sql:micronaut-jdbc-hikari")
