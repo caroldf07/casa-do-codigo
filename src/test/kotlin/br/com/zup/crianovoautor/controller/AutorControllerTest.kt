@@ -1,6 +1,8 @@
 package br.com.zup.crianovoautor.controller
 
 import br.com.zup.crianovoautor.NovoAutorRequest
+import io.micronaut.http.HttpResponse
+import io.micronaut.http.HttpStatus
 import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
@@ -11,14 +13,14 @@ import org.junit.jupiter.api.assertThrows
 import javax.inject.Inject
 import javax.validation.ConstraintViolationException
 
-@MicronautTest(transactional = false)
+@MicronautTest
 class AutorControllerTest {
 
     @Inject
     lateinit var autorController: AutorController
 
     @Inject
-    @field:Client("/autores")
+    @field:Client("/")
     lateinit var client: HttpClient
 
     @Test
@@ -70,7 +72,19 @@ class AutorControllerTest {
             autorController.cria(request = request)
         }
         assertEquals("cria.request.descricao: size must be between 0 and 400", exception.message)
-
     }
 
+    @Test
+    @DisplayName("Deve retornar 200")
+    fun testaCriaAutor6() {
+        var request: NovoAutorRequest = NovoAutorRequest(
+            nome = "testeNovo",
+            email = "email@email.com",
+            descricao = "descricao"
+        )
+
+        var response: HttpResponse<Any> = autorController.cria(request)
+
+        assertEquals(HttpStatus.OK, response.status())
+    }
 }
