@@ -14,10 +14,10 @@ import javax.validation.ConstraintViolationException
 
 
 @MicronautTest
-class AutorControllerTest {
+class CriaEListaAutorControllerTest {
 
     @Inject
-    lateinit var autorController: AutorController
+    lateinit var criaEListaAutorController: CriaEListaAutorController
 
     @Inject
     lateinit var autorRepository: AutorRepository
@@ -27,7 +27,7 @@ class AutorControllerTest {
     fun testaCriaAutor1() {
         var request: NovoAutorRequest = NovoAutorRequest(nome = "Carol", email = "", descricao = "descricao")
         val exception = assertThrows<ConstraintViolationException> {
-            autorController.cria(request = request)
+            criaEListaAutorController.cria(request = request)
         }
 
         assertEquals(
@@ -43,7 +43,7 @@ class AutorControllerTest {
     fun testaCriaAutor2() {
         var request: NovoAutorRequest = NovoAutorRequest(nome = "", email = "email@email.com", descricao = "descricao")
         val exception = assertThrows<ConstraintViolationException> {
-            autorController.cria(request = request)
+            criaEListaAutorController.cria(request = request)
         }
         assertEquals("cria.request.nome: must not be blank", exception.message)
     }
@@ -53,7 +53,7 @@ class AutorControllerTest {
     fun testaCriaAutor4() {
         var request: NovoAutorRequest = NovoAutorRequest(nome = "teste", email = "email@email.com", descricao = "")
         val exception = assertThrows<ConstraintViolationException> {
-            autorController.cria(request = request)
+            criaEListaAutorController.cria(request = request)
         }
         assertEquals("cria.request.descricao: must not be blank", exception.message)
 
@@ -68,7 +68,7 @@ class AutorControllerTest {
             descricao = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at volutpat diam. Integer a hendrerit massa. Aliquam erat volutpat. Vestibulum mi diam, lobortis non tempor quis, feugiat quis risus. Sed maximus id dui at ornare. Mauris vitae laoreet nibh, sed laoreet dui. Morbi nisl diam, lobortis ut dignissim in, iaculis ut ex. Quisque orci mi, vestibulum ac diam a, venenatis blandit sapien. Suspendisse aliquet mauris sit amet leo porttitor, sit amet viverra est blandit. """
         )
         val exception = assertThrows<ConstraintViolationException> {
-            autorController.cria(request = request)
+            criaEListaAutorController.cria(request = request)
         }
         assertEquals("cria.request.descricao: size must be between 0 and 400", exception.message)
     }
@@ -82,7 +82,7 @@ class AutorControllerTest {
             descricao = "descricao"
         )
 
-        var response: HttpResponse<Any> = autorController.cria(request)
+        var response: HttpResponse<Any> = criaEListaAutorController.cria(request)
 
         assertEquals(HttpStatus.OK, response.status())
     }
@@ -90,7 +90,7 @@ class AutorControllerTest {
     @Test
     @DisplayName("Deve retornar notFound")
     fun testaBuscaAutor1() {
-        var emailNaoExiste: HttpResponse<Any> = autorController.busca("carol@email.com")
+        var emailNaoExiste: HttpResponse<Any> = criaEListaAutorController.busca("carol@email.com")
         assertEquals(HttpStatus.NOT_FOUND, emailNaoExiste.status)
 
     }
@@ -98,14 +98,14 @@ class AutorControllerTest {
     @Test
     @DisplayName("Deve retornar ok")
     fun testaBuscaAutor2() {
-        var emailExiste: HttpResponse<Any> = autorController.busca("email@email.com")
+        var emailExiste: HttpResponse<Any> = criaEListaAutorController.busca("email@email.com")
         assertEquals(HttpStatus.OK, emailExiste.status)
     }
 
     @Test
     @DisplayName("Deve retornar ok quando vazio")
     fun testaBuscaAutor3() {
-        var emailExiste: HttpResponse<Any> = autorController.busca("")
+        var emailExiste: HttpResponse<Any> = criaEListaAutorController.busca("")
         assertEquals(HttpStatus.OK, emailExiste.status)
     }
 }

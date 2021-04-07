@@ -17,4 +17,6 @@ class Autor(
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: UUID? = null
     var criadoEm: LocalDateTime = LocalDateTime.now()
+
+
 }

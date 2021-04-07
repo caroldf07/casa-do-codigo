@@ -1,18 +1,16 @@
 <h1>Desafio 01 - Casa do Código</h1> 
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=spring&message=framework&color=GREEN&style=for-the-badge&logo=SPRING"/> <img src="http://img.shields.io/static/v1?label=License&message=MIT&color=orange&style=for-the-badge"/> <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>
+  <img src="https://img.shields.io/static/v1?label=micronaut&message=framework&color=GREEN&style=for-the-badge&logo=MICRONAUT"/> <img src="http://img.shields.io/static/v1?label=License&message=MIT&color=orange&style=for-the-badge"/> <img src="http://img.shields.io/static/v1?label=STATUS&message=ANDAMENTO&color=GREEN&style=for-the-badge"/>
 </p>
 
-> Status do Projeto: :heavy_check_mark: (concluido)
+> Status do Projeto: :heavy_check_mark: (andamento)
 
 ### Tópicos 
 
 :small_orange_diamond: [Descrição do projeto](#descrição-do-projeto)
 
 :small_orange_diamond: [Funcionalidades](#funcionalidades)
-
-:small_orange_diamond: [Casos de Uso](#casos-de-uso)
 
 :small_orange_diamond: [Linguagens, dependencias e libs utilizadas](#linguagens-dependencias-e-libs-utilizadas-books)
 
@@ -41,21 +39,10 @@
 
 :heavy_check_mark: Funcionalidade 8: Início de fluxo de pagamento (com validação de País, Estado existirem e, caso o País tenha Estado cadastrado, ele ser obrigatório)
 
-
-## Casos de Uso
-![País possui Estados cadastrados, mas não foi indicado o Id do Estado](https://imgur.com/kdPqVQZ.gif "País possui Estados cadastrados, mas não foi indicado o Id do Estado")
-País possui Estados cadastrados, mas não foi indicado o Id do Estado
-
-![País não possui Estado pendente e foi cadastrado com sucesso](https://imgur.com/RzJEiqG.gif "País não possui Estado pendente e foi cadastrado com sucesso")
-País não possui Estado pendente e foi cadastrado com sucesso
-
-![Tentativa de cadastrar cliente com e-mail e documento duplicados](https://imgur.com/NGzeC1y.gif "Tentativa de cadastrar cliente com e-mail e documento duplicados")
-Tentativa de cadastrar cliente com e-mail e documento duplicados
-
 ## Linguagens, dependencias e libs utilizadas :books:
 
-- [Java](https://docs.oracle.com/en/java/javase/11/index.html)
-- [Spring Framework](https://docs.spring.io/spring-framework/docs/current/reference/html/)
+- [Kotlin](https://kotlinlang.org/docs/home.html)
+- [Micronaut Framework](https://micronaut.io/docs/)
 - [MariaDB](https://mariadb.org/)
 - [Hibernate](https://hibernate.org/)
 

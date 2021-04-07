@@ -16,7 +16,7 @@ import javax.validation.Valid
 //Carga de 7
 @Validated
 @Controller("/autores")
-class AutorController(@PersistenceContext val em: EntityManager, val autorRepository: AutorRepository) {
+class CriaEListaAutorController(@PersistenceContext val em: EntityManager, val autorRepository: AutorRepository) {
 
     @Post
     @Transactional
