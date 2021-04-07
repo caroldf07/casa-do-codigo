@@ -6,12 +6,14 @@ import br.com.zup.crianovoautor.repository.AutorRepository
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.*
 import java.util.*
+import javax.transaction.Transactional
 
-//Carga de 4
+//Carga de 5
 @Controller("/autores/{id}")
 class AtualizaAutorController(val autorRepository: AutorRepository) {
 
     @Put
+    @Transactional
     fun atualiza(@PathVariable("id") id: UUID, @Body atualizarAutor: AtualizaAutorRequest): HttpResponse<Any> {
         val possivelAutor: Optional<Autor> = autorRepository.findById(id)
 
@@ -31,9 +33,11 @@ class AtualizaAutorController(val autorRepository: AutorRepository) {
     }
 
     @Delete
+    @Transactional
     fun delete(@PathVariable("id") id: UUID): HttpResponse<Any> {
         val possivelAutor: Optional<Autor> = autorRepository.findById(id)
 
+        //1
         if (possivelAutor.isEmpty) {
             return HttpResponse.notFound()
         }

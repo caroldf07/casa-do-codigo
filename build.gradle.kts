@@ -7,6 +7,10 @@ plugins {
     id("io.micronaut.application") version "1.4.2"
 }
 
+allOpen {
+    annotation("io.micronaut.http.annotation.Controller")
+}
+
 version = "0.1"
 group = "br.com.zup"
 
